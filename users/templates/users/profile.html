@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="my-4">Welcome, {{ user.username }}</h1>
+
+        <!-- User Info -->
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+    </div>
+{% endblock content %}

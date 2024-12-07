@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">NutriCook Recipe #{{ object.id }}</h1>
+
+        <div class="card mb-4" style="max-width: 700px; margin: auto;">
+            <div class="card-body">
+                <h5 class="card-title">{{ object.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">By {{ object.author.username }}</h6>
+                <p class="card-text">{{ object.description }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{ object.updated_at|date:"F d, Y" }}</h6>
+            </div>
+        </div>
+
+        {% if object.author == user or user.is_staff %}
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-outline-info" href="{% url 'recipes-update' object.id %}">Update</a>
+                <a class="btn btn-outline-danger" href="{% url 'recipes-delete' object.id %}">Delete</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

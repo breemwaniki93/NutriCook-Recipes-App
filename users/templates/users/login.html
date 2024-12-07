@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- Display success or error messages if they exist -->
+        {% if messages %}
+            <div class="alert alert-info">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3">Log in to your account</legend>
+                {{ form.as_p }}  
+            </fieldset>
+
+            <div class="form-group py-3">
+                <input class="btn btn-outline-primary" type="submit" value="Login"/>
+            </div>
+        </form>
+
+        <div class="border-top pt-3">
+            <p>Don't have an account? <a href="{% url 'user-register' %}">Register here.</a></p>  <!-- Ensure it redirects to registration page -->
+        </div>
+    </div>
+{% endblock content %}

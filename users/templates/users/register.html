@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Sign Up</h1>
+
+        <!-- Display success or error messages if they exist -->
+        {% if messages %}
+            <div class="alert alert-success">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <!-- Card for Sign Up Form -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Account Details</legend>
+
+                        <!-- Grid for 2x2 layout of inputs -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="{{ form.username.id_for_label }}">Username</label>
+                                {{ form.username }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.email.id_for_label }}">Email</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.password1.id_for_label }}">Password</label>
+                                {{ form.password1 }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                                {{ form.password2 }}
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Submit Button -->
+                    <div class="form-group py-3">
+                        <input class="btn btn-outline-primary" type="submit" value="Sign Up"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Link -->
+        <div class="border-top pt-3">
+            <p>Already have an account? <a href="{% url 'user-login' %}">Log in here.</a></p>
+        </div>
+    </div>
+{% endblock content %}

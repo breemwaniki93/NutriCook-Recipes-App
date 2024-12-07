@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}About NutriCook | NutriCook Recipes{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <!-- About Page Header -->
+        <h1 class="text-center my-4">About NutriCook Recipes App</h1>
+
+        <!-- Row to hold image and text side by side -->
+        <div class="row">
+            <!-- Column for the image (takes 12 columns on small screens, 6 columns on medium screens and above) -->
+            <div class="col-12 col-md-6">
+                <img src="{% static 'images/about-image.jpg' %}" alt="NutriCook" class="img-fluid rounded" />
+            </div>
+
+            <!-- Column for the text (takes 12 columns on small screens, 6 columns on medium screens and above) -->
+            <div class="col-12 col-md-6">
+                <p class="intro-text">NutriCook is your go-to app for healthy, nutritious, and delicious recipes. Whether you're looking to eat healthier, try new meals, or track your nutritional intake, we've got you covered!</p>
+
+                <section class="features">
+                    <h2>Features</h2>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> Browse a wide variety of recipes</li>
+                        <li><i class="bi bi-check-circle"></i> Submit your own recipes</li>
+                        <li><i class="bi bi-check-circle"></i> Create shopping lists from recipes</li>
+                        <li><i class="bi bi-check-circle"></i> Save and share your favorite recipes</li>
+                    </ul>
+                </section>
+
+                <section class="mission">
+                    <h2>Our Mission</h2>
+                    <p>At NutriCook, we aim to provide users with nutritious recipes that are easy to make, healthy, and delicious.</p>
+                </section>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="cta text-center my-5">
+            <h3>Ready to Start Cooking/Eating Healthy?</h3>
+            <a href="{% url 'user-register' %}" class="btn btn-primary">Sign Up Now</a>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials my-5">
+            <h2 class="text-center">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>"NutriCook has transformed my cooking habits. I love the easy-to-follow recipes!"</p>
+                            <footer>- User 1</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>"I have been eating healthier thanks to NutriCook's diverse recipe collection."</p>
+                            <footer>- User 2</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>"The shopping list feature is a game-changer! It makes grocery shopping so much easier."</p>
+                            <footer>- User 3</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="text-center py-4">
+            <p>&copy; 2024 NutriCook. All rights reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+                <li class="list-inline-item"><a href="#">FAQs</a></li>
+            </ul>
+        </footer>
+    </div>
+{% endblock %}

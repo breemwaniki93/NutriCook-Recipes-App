@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1 class="text-center my-4">Welcome to NutriCook Recipes App</h1>
+
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'images/1.jpg'%}" class="card-img-top" alt="Recipe image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ recipe.author }}</h6>
+                    <p class="card-text">{{ recipe.description|truncatewords:20 }}</p>
+                    <p class="card-text"><small class="text-muted">{{ recipe.updated_at|date:"F d, Y" }}</small></p>
+                    <a href="{% url 'recipes-detail' recipe.pk %}" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
